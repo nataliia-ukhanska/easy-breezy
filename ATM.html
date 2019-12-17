@@ -9,51 +9,51 @@
     var attemptsCount = 3;
     function Login() {
         var enteredPassword = prompt('Enter your pin');
-       if (enteredPassword == password) {
-           console.log('Success');
-           operation('Balance');
+        if (enteredPassword == password) {
+            console.log('Success');
+            operation('Balance');
             operation('Withdraw');
-           Logout();
-       } else {
-           attemptsCount = attemptsCount - 1;
-           switch (attemptsCount) {
-               case 2: 
-                     alert(wrongPasstry1);
-                   Login();
-                   break;
-               case 1:
-                   alert(wrongPasstry2);
-                   Login();
-                   break;
+            Logout();
+        } else {
+            attemptsCount = attemptsCount - 1;
+            switch (attemptsCount) {
+                case 2:
+                    alert(wrongPasstry1);
+                    Login();
+                    break;
+                case 1:
+                    alert(wrongPasstry2);
+                    Login();
+                    break;
                 case 0:
-                   console.log(cardBlocked); 
-           }
-       }     
+                prompt(cardBlocked);
+            }
+        }
     }
-    
+
     function operation(operation) {
         if (operation === 'Balance') {
-           console.log(balance)
-       } else if (operation === 'Withdraw') {
-       var amount = Number(prompt('Enter amount to withdraw'));
-       if (balance < amount) {
-            console.log('Not enough money')
-             console.log(balance) 
-        } else if (balance >= amount) {
-           balance = balance - amount;
-            console.log ('Success')
-             console.log('Current balance:' + ' ' + balance) 
+            console.log(balance)
+        } else if (operation === 'Withdraw') {
+            var amount = Number(prompt('Enter amount to withdraw'));
+            if (balance < amount) {
+                console.log('Not enough money')
+                console.log(balance)
+            } else if (balance >= amount) {
+                balance = balance - amount;
+                console.log('Success')
+                console.log('Current balance:' + ' ' + balance)
             }
-       }
-    } 
-    
+        }
+    }
+
     function Logout() {
-       var stayOrLeave = prompt('Enter "Leave" to logout or "Stay" for another transaction?');
-       if (stayOrLeave == logout) {
-           console.log('Thank you. Have a nice day!')
-       } else { 
-           Login();
-       }
+        var stayOrLeave = prompt('Enter "Leave" to logout or "Stay" for another transaction?');
+        if (stayOrLeave == logout) {
+            console.log('Thank you. Have a nice day!')
+        } else {
+            Login();
+        }
     }
     Login();
-    </script>
+</script>
